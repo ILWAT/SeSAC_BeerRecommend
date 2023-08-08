@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RecommendBeerCollectionViewCell" customModule="SeSAC_BeerRecommend" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="275" height="299"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="275" height="299"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PRO-Xb-kjj">
+                        <rect key="frame" x="67.666666666666671" y="27.333333333333329" width="139.66666666666663" height="209.33333333333337"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PRO-Xb-kjj" secondAttribute="height" multiplier="2:3" id="bMP-2p-7Vq"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTw-zX-CBw">
+                        <rect key="frame" x="10" y="246.66666666666666" width="255" height="20.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZnI-cq-gOf">
+                        <rect key="frame" x="10" y="267" width="255" height="20.333333333333314"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtK-5R-iQY">
+                                <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTI-uq-NXJ">
+                                <rect key="frame" x="127.66666666666666" y="0.0" width="127.33333333333334" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZnI-cq-gOf" firstAttribute="top" secondItem="dTw-zX-CBw" secondAttribute="bottom" id="1VD-bB-4kK"/>
+                <constraint firstItem="ZnI-cq-gOf" firstAttribute="trailing" secondItem="dTw-zX-CBw" secondAttribute="trailing" id="AVB-tx-50m"/>
+                <constraint firstItem="dTw-zX-CBw" firstAttribute="top" secondItem="PRO-Xb-kjj" secondAttribute="bottom" constant="10" id="IJP-u8-O2e"/>
+                <constraint firstItem="PRO-Xb-kjj" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.7" id="tdc-Bl-31B"/>
+                <constraint firstAttribute="trailing" secondItem="dTw-zX-CBw" secondAttribute="trailing" constant="10" id="toI-KM-jtL"/>
+                <constraint firstItem="ZnI-cq-gOf" firstAttribute="leading" secondItem="dTw-zX-CBw" secondAttribute="leading" id="uTU-AX-u8R"/>
+                <constraint firstItem="PRO-Xb-kjj" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" constant="-30" id="vDS-bK-uco"/>
+                <constraint firstItem="dTw-zX-CBw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="vds-Pp-5eP"/>
+                <constraint firstItem="PRO-Xb-kjj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="w4C-CV-Kis"/>
+            </constraints>
+            <size key="customSize" width="275" height="299"/>
+            <connections>
+                <outlet property="abvLabel" destination="LtK-5R-iQY" id="Rjb-P5-jOr"/>
+                <outlet property="beerImgView" destination="PRO-Xb-kjj" id="kci-A0-Afs"/>
+                <outlet property="beerNameLabel" destination="dTw-zX-CBw" id="cqw-Sg-YYo"/>
+                <outlet property="ibuLabel" destination="QTI-uq-NXJ" id="fLy-PD-uvL"/>
+            </connections>
+            <point key="canvasLocation" x="191.6030534351145" y="108.09859154929578"/>
+        </collectionViewCell>
+    </objects>
+</document>
