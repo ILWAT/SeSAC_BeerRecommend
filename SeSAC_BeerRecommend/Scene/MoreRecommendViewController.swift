@@ -13,9 +13,7 @@ import Kingfisher
 
 class MoreRecommendViewController: UIViewController {
     
-    var beerData: BeerDataModel = []
-    
-    let apiManager = APIManger.shared
+    let viewModel = MoreRecommendViewModel()
 
     @IBOutlet weak var beerCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -24,9 +22,10 @@ class MoreRecommendViewController: UIViewController {
         self.title = "추천 맥주 더보기"
         
         setCollectionView()
-        
-        callRequest()
-        
+        viewModel.beerData.bind { value in
+            self.beerCollectionView.reloadData()
+        }
+        viewModel.callRequest()
     }
 
     //서버 통신
@@ -50,15 +49,7 @@ class MoreRecommendViewController: UIViewController {
 //            }
 //        }
         
-        apiManager.callAPIRequest(T: BeerDataModel.self, requestType: .getBeers) { response in
-            switch response {
-            case .success(let success):
-                self.beerData.append(contentsOf: success)
-                self.beerCollectionView.reloadData()
-            case .failure(let failure):
-                print(failure)
-            }
-        }
+        
         
     }
 
@@ -85,7 +76,7 @@ class MoreRecommendViewController: UIViewController {
 
 extension MoreRecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return beerData.count
+        return viewModel.beerData.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -93,7 +84,7 @@ extension MoreRecommendViewController: UICollectionViewDelegate, UICollectionVie
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendBeerCollectionViewCell", for: indexPath) as! RecommendBeerCollectionViewCell
         
-        cell.setUI(beerData[indexPath.row])
+        cell.setUI(viewModel.beerData.value[indexPath.row])
         
         
         return cell
@@ -102,7 +93,7 @@ extension MoreRecommendViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
         
-        nextVC.beerData = beerData[indexPath.row]
+        nextVC.beerData = viewModel.beerData.value[indexPath.row]
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

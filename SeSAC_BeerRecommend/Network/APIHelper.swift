@@ -46,7 +46,6 @@ enum APIHelper {
         switch self {
         case .getBeers, .getASingleBeer, .getRandomBeer:
             return ["": ""]
-
         }
     }
 }

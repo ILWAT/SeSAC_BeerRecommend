@@ -21,5 +21,16 @@ final class APIManger{
             }
         }
     }
+    
+    func callAPIRequest<T: Decodable>(T: T.Type, requestType: Router, completionHandler: @escaping (Result<T,Error>)->Void){
+        AF.request(requestType).validate().responseDecodable(of: T.self) { response in
+            switch response.result{
+            case .success(let value):
+                completionHandler(.success(value))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
 
 }
