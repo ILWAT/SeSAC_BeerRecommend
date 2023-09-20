@@ -19,7 +19,7 @@ class RecommendBeerCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setUI(_ data: Beer){
+    func setUI(_ data: BeerDataModelElement){
         beerNameLabel.text = data.name
         beerNameLabel.textAlignment = .center
         beerNameLabel.font = .boldSystemFont(ofSize: 17)
@@ -30,9 +30,9 @@ class RecommendBeerCollectionViewCell: UICollectionViewCell {
         
         beerImgView.kf.setImage(with: URL(string: data.imageURL))
         
-        ibuLabel.text = "IBU: \(data.ibu ?? "Unknown")"
+        ibuLabel.text = "IBU: \(data.ibu ?? 0)"
         ibuLabel.textAlignment = .center
-        abvLabel.text = "ABV: \(data.abv ?? "Unknown")"
+        abvLabel.text = "ABV: \(data.abv ?? 0)"
         abvLabel.textAlignment = .center
         
         self.layer.borderColor = UIColor.black.cgColor

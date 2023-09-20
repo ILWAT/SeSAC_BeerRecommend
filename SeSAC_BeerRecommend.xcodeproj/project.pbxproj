@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE59D7662AB9A74900C79348 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE59D7652AB9A74900C79348 /* APIManager.swift */; };
+		DE59D7682ABA0CE300C79348 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE59D7672ABA0CE300C79348 /* APIHelper.swift */; };
 		DE74073A2A81EF06008CC62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7407392A81EF06008CC62A /* AppDelegate.swift */; };
 		DE74073C2A81EF06008CC62A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE74073B2A81EF06008CC62A /* SceneDelegate.swift */; };
 		DE74073E2A81EF06008CC62A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE74073D2A81EF06008CC62A /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE59D7652AB9A74900C79348 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DE59D7672ABA0CE300C79348 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		DE7407362A81EF06008CC62A /* SeSAC_BeerRecommend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_BeerRecommend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7407392A81EF06008CC62A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE74073B2A81EF06008CC62A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE59D7602AB9A35600C79348 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE7407622A823690008CC62A /* Beer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE59D7612AB9A36000C79348 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DE59D7652AB9A74900C79348 /* APIManager.swift */,
+				DE59D7672ABA0CE300C79348 /* APIHelper.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DE59D7622AB9A36700C79348 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DE74075E2A822D97008CC62A /* RecommendBeerCollectionViewCell.swift */,
+				DE74075F2A822D97008CC62A /* RecommendBeerCollectionViewCell.xib */,
+				DE7407642A826EC6008CC62A /* DetailViewController.swift */,
+				DE74075A2A822D32008CC62A /* MoreRecommendViewController.swift */,
+				DE74073F2A81EF06008CC62A /* Main.storyboard */,
+				DE74073D2A81EF06008CC62A /* ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DE59D7642AB9A38500C79348 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DE7407392A81EF06008CC62A /* AppDelegate.swift */,
+				DE74073B2A81EF06008CC62A /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		DE74072D2A81EF06008CC62A = {
 			isa = PBXGroup;
 			children = (
@@ -72,15 +115,10 @@
 		DE7407382A81EF06008CC62A /* SeSAC_BeerRecommend */ = {
 			isa = PBXGroup;
 			children = (
-				DE7407392A81EF06008CC62A /* AppDelegate.swift */,
-				DE74073B2A81EF06008CC62A /* SceneDelegate.swift */,
-				DE74073D2A81EF06008CC62A /* ViewController.swift */,
-				DE7407622A823690008CC62A /* Beer.swift */,
-				DE74073F2A81EF06008CC62A /* Main.storyboard */,
-				DE74075E2A822D97008CC62A /* RecommendBeerCollectionViewCell.swift */,
-				DE74075F2A822D97008CC62A /* RecommendBeerCollectionViewCell.xib */,
-				DE7407642A826EC6008CC62A /* DetailViewController.swift */,
-				DE74075A2A822D32008CC62A /* MoreRecommendViewController.swift */,
+				DE59D7642AB9A38500C79348 /* App */,
+				DE59D7622AB9A36700C79348 /* Scene */,
+				DE59D7612AB9A36000C79348 /* Network */,
+				DE59D7602AB9A35600C79348 /* Model */,
 				DE7407422A81EF08008CC62A /* Assets.xcassets */,
 				DE7407442A81EF08008CC62A /* LaunchScreen.storyboard */,
 				DE7407472A81EF08008CC62A /* Info.plist */,
@@ -170,12 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE59D7662AB9A74900C79348 /* APIManager.swift in Sources */,
 				DE74075B2A822D32008CC62A /* MoreRecommendViewController.swift in Sources */,
 				DE7407632A823690008CC62A /* Beer.swift in Sources */,
 				DE7407602A822D97008CC62A /* RecommendBeerCollectionViewCell.swift in Sources */,
 				DE74073E2A81EF06008CC62A /* ViewController.swift in Sources */,
 				DE74073A2A81EF06008CC62A /* AppDelegate.swift in Sources */,
 				DE74073C2A81EF06008CC62A /* SceneDelegate.swift in Sources */,
+				DE59D7682ABA0CE300C79348 /* APIHelper.swift in Sources */,
 				DE7407652A826EC6008CC62A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

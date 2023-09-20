@@ -13,7 +13,9 @@ import Kingfisher
 
 class MoreRecommendViewController: UIViewController {
     
-    var beerData: [Beer] = []
+    var beerData: BeerDataModel = []
+    
+    let apiManager = APIManger.shared
 
     @IBOutlet weak var beerCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -24,28 +26,40 @@ class MoreRecommendViewController: UIViewController {
         setCollectionView()
         
         callRequest()
+        
     }
 
     //서버 통신
     func callRequest(){
-        let url = "https://api.punkapi.com/v2/beers"
+//        let url = "https://api.punkapi.com/v2/beers"
         
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result{
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-                
-                for item in json.arrayValue{
-                    self.beerData.append(Beer(name: item["name"].stringValue, imageURL: item["image_url"].stringValue, description: item["description"].stringValue, abv: item["abv"].stringValue, ibu: item["ibu"].stringValue))
-                }
-                
+//        AF.request(url, method: .get).validate().responseJSON { response in
+//            switch response.result{
+//            case .success(let value):
+//                let json = JSON(value)
+//                print(json)
+//                
+//                for item in json.arrayValue{
+//                    self.beerData.append(Beer(name: item["name"].stringValue, imageURL: item["image_url"].stringValue, description: item["description"].stringValue, abv: item["abv"].stringValue, ibu: item["ibu"].stringValue))
+//                }
+//                
+//                self.beerCollectionView.reloadData()
+//                
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        
+        apiManager.callAPIRequest(T: BeerDataModel.self, requestType: .getBeers) { response in
+            switch response {
+            case .success(let success):
+                self.beerData.append(contentsOf: success)
                 self.beerCollectionView.reloadData()
-                
-            case .failure(let error):
-                print(error)
+            case .failure(let failure):
+                print(failure)
             }
         }
+        
     }
 
     func setCollectionView(){

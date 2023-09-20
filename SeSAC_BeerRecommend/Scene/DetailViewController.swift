@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ibuLabel: UILabel!
     
-    var beerData: Beer? = nil
+    var beerData: BeerDataModelElement? = nil
     
     
     //MARK: - Properties
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setData(beerdata: Beer?){
+    func setData(beerdata: BeerDataModelElement?){
         guard let beerdata else { return }
         nameLabel.text = beerdata.name
         descriptionTextView.text = beerdata.description
@@ -43,8 +43,8 @@ class DetailViewController: UIViewController {
         let url = URL(string: beerdata.imageURL)
         beerImageView.kf.setImage(with: url)
         
-        abvLabel.text = "abv: \(beerdata.abv ?? "Unknown")"
-        ibuLabel.text = "ibu: \(beerdata.ibu ?? "Unknown")"
+        abvLabel.text = "abv: \(beerdata.abv)"
+        ibuLabel.text = "ibu: \(beerdata.ibu)"
     }
     
 
